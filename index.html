@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>ESPL Assi</title>
+  <!-- CSS -->
+  <link rel="stylesheet" type="text/css" href="public/css/styles.css">
+  <!-- Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@900&family=Roboto:wght@700&display=swap" rel="stylesheet">
+  <script type="text/javascript">
+  function passwordReset(firstPassword,secondPassword){
+    var firstPassword = document.querySelector(".firstPassword").value;
+    var secondPassword = document.querySelector(".secondPassword").value;
+    if(firstPassword!==secondPassword){
+      alert("The two passwords do not match!");
+    }
+    else if(firstPassword.length<8){
+      alert("The password length should be at least 8 characters!");
+    }
+    else{
+      var i, l=0;
+      var newFP = firstPassword.toLowerCase();
+      var newSP = secondPassword.toLowerCase();
+      for(i=0;i<firstPassword.length;i++){
+        var ch = newFP.slice(i,i+1);
+        if(ch>='a'&&ch<='z'){
+          l++;
+        }
+      }
+      if(l==firstPassword.length){
+        alert("The password should be a combination of alphabets, numbers and, maybe symbols!")
+      }
+      else{
+        document.querySelector("h1").innerHTML = "Password Changed";
+        document.querySelector(".mid-div-text").innerHTML = "<p>Your password has been updated! Now get back in the driver seat, racers are waiting for you!</p>";
+      }
+    }
+  }
+
+  </script>
+</head>
+
+<body class="body">
+  <img class="header-bar" src="public/images/headerbar.png" alt="Header Bar">
+  <div class="middle-div">
+    <div class="form-div">
+      <h1>Password Reset</h1>
+      <div class="mid-div-text">
+        <form action="index.js">
+          <div class="lni-div">
+            <label class="label" for="">NEW PASSWORD</label><br>
+            <input class="input firstPassword" type="password" name="firstPassword"><br>
+            <label class="label" for="">RE-ENTER PASSWORD</label><br>
+            <input class="input secondPassword" type="password" name="secondPassword"><br>
+          </div>
+          <button onclick="passwordReset(firstPassword,secondPassword)" class="btn btn-dark" type="button" name="button">RESET PASSWORD</button>
+        </form>
+      </div>
+    </div>
+  </div>
+  <div class="footer-div">
+    <div class="footer-text">
+      <p class="footer-text-p">About Us</p>
+      <p class="footer-text-p">Privacy Policy</p>
+      <p class="footer-text-p">Tutorials</p>
+      <p class="footer-text-p">Terms of Service</p>
+    </div>
+    <div class="footer-image">
+      <img class="rectangle-image" src="public/images/rectangle.png" alt="Rectangle">
+    </div>
+  </div>
+  <!-- <script src="js/index.js"></script> -->
+</body>
+
+</html>
